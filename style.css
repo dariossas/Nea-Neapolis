@@ -1,0 +1,405 @@
+/* Regole base per tutti gli elementi HTML */
+* {
+    margin: 0;           /* Rimuove tutti i margini esterni degli elementi */
+    padding: 0;          /* Rimuove tutti i margini interni degli elementi */
+    box-sizing: border-box;  /* Fa in modo che padding e bordi siano inclusi nella larghezza/altezza totale */
+    font-family: Arial, sans-serif;  /* Imposta il carattere predefinito per tutto il testo */
+}
+
+/* Impedisce alla pagina di creare barre di scorrimento orizzontali */
+body {
+    overflow-x: hidden;  /* Nasconde la barra di scorrimento orizzontale se il contenuto è troppo largo */
+}
+
+/* Contenitore principale che contiene tutti gli elementi della pagina */
+.main-content {
+    display: flex;           /* Abilita il layout flessibile */
+    flex-direction: column;  /* Imposta la direzione del layout in verticale (dall'alto verso il basso) */
+    justify-content: center; /* Centra verticalmente gli elementi all'interno */
+    align-items: center;     /* Centra orizzontalmente gli elementi all'interno */
+    width: 100%;             /* Occupa tutta la larghezza disponibile */
+}
+
+/* Stili per la sezione banner principale in cima alla pagina */
+.banner {
+    width: 100%;        /* Occupa tutta la larghezza disponibile */
+    height: 90vh;       /* Occupa il 90% dell'altezza della finestra del browser */
+    overflow: hidden;   /* Nasconde qualsiasi parte dell'immagine che supera i confini del banner */
+    position: relative; /* Permette di posizionare elementi al suo interno con position: absolute */
+}
+
+/* Stili per l'immagine all'interno del banner */
+.banner img {
+    width: 100%;           /* Occupa tutta la larghezza del banner */
+    height: 100%;          /* Occupa tutta l'altezza del banner */
+    object-fit: cover;     /* Fa in modo che l'immagine riempia lo spazio senza distorsioni */
+    object-position: center; /* Centra l'immagine nel caso sia più grande del contenitore */
+    display: inline-block; /* Fa in modo che l'immagine si comporti come un elemento in linea ma con caratteristiche di blocco */
+}
+
+/* Stili per il testo principale sopra l'immagine del banner */
+.testo-sopra {
+    position: absolute;     /* Posiziona il testo in modo assoluto rispetto al banner */
+    top: 50%;               /* Posiziona il testo a metà dell'altezza del banner */
+    left: 50%;              /* Posiziona il testo a metà della larghezza del banner */
+    transform: translate(-50%, -50%); /* Sposta il testo indietro del 50% della sua dimensione per centrarlo perfettamente */
+    color: white;           /* Imposta il colore del testo a bianco */
+    font-size: 11vh;        /* Dimensione del testo relativa all'altezza della finestra */
+    font-weight: bold;      /* Rende il testo in grassetto */
+    font-family: Georgia, serif; /* Imposta il tipo di carattere */
+    text-shadow: 2px 2px 4px rgb(25, 136, 187); /* Aggiunge un'ombra al testo per migliorare la leggibilità */
+}
+
+/* Stili per il sottotitolo del banner */
+.sottotitolo {
+    position: absolute;     /* Posiziona il testo in modo assoluto rispetto al banner */
+    top: 50%;               /* Parte dalla metà dell'altezza del banner */
+    left: 50%;              /* Posiziona a metà della larghezza del banner */
+    transform: translate(-50%, 185%); /* Sposta orizzontalmente al centro e verticalmente più in basso */
+    color: white;           /* Imposta il colore del testo a bianco */
+    font-size: 2vh;         /* Dimensione del testo relativa all'altezza della finestra */
+    font-weight: bold;      /* Rende il testo in grassetto */
+    font-family: Georgia, serif; /* Imposta il tipo di carattere */
+    text-shadow: 2px 2px 4px rgb(25, 136, 187); /* Aggiunge un'ombra al testo */
+}
+
+/* Stili per il testo dell'intestazione */
+.scritta-header {
+    font-size: 2vh;        /* Dimensione del testo relativa all'altezza della finestra */
+    padding: 10px;         /* Spazio interno attorno al testo */
+    color: #ffffff;        /* Colore del testo (bianco) */
+    text-shadow: 2px 2px 4px #000; /* Ombra nera per migliorare la leggibilità */
+    background-color: #0d6f7c; /* Colore di sfondo (blu-verde scuro) */
+    font-family: Georgia, serif; /* Tipo di carattere */
+}
+
+/* Contenitore per il menu di navigazione */
+.menu-container {
+    width: 100%;            /* Occupa tutta la larghezza disponibile */
+    display: flex;          /* Abilita il layout flessibile */
+    justify-content: center; /* Centra orizzontalmente gli elementi all'interno */
+    padding: 15px 0;        /* Aggiunge spazio sopra e sotto (15px), ma non ai lati */
+    background-color: rgb(25, 136, 187); /* Colore di sfondo blu */
+    position: sticky;       /* Fa rimanere il menu visibile durante lo scorrimento */
+    top: 0;                 /* Fissa il menu in cima alla finestra */
+    z-index: 10;            /* Assicura che il menu rimanga sopra agli altri elementi */
+}
+
+/* Contenitore per i pulsanti del menu */
+.menu-buttons {
+    display: flex;           /* Abilita il layout flessibile */
+    justify-content: center; /* Centra orizzontalmente i pulsanti */
+    gap: 10px;               /* Aggiunge spazio tra i pulsanti */
+}
+
+/* Stile per ogni singolo pulsante del menu */
+.menu-btn {
+    padding: 10px 25px;     /* Spazio interno: 10px sopra/sotto, 25px a destra/sinistra */
+    font-size: 16px;        /* Dimensione del testo */
+    font-weight: bold;      /* Testo in grassetto */
+    background-color: #f8f8f8; /* Colore di sfondo grigio chiaro */
+    border: 1px solid #333; /* Bordo nero sottile */
+    border-radius: 4px;     /* Bordi arrotondati */
+    cursor: pointer;        /* Cambia il cursore in una mano quando sopra al pulsante */
+    transition: all 0.3s ease; /* Aggiunge una transizione fluida per i cambiamenti di stile */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19); /* Aggiunge ombra per effetto 3D */
+}
+
+/* Cambia lo stile del pulsante quando il mouse ci passa sopra */
+.menu-btn:hover {
+    background-color: #0d6f7c; /* Cambia colore di sfondo */
+    color: white;              /* Cambia colore del testo a bianco */
+}
+
+/* Stile per il pulsante attualmente selezionato */
+.menu-btn.active {
+    background-color: #0d6f7c; /* Colore di sfondo blu-verde */
+    color: white;              /* Colore del testo bianco */
+}
+
+/* Contenitore principale per l'immagine di sfondo e le sezioni di contenuto */
+.content-container {
+    width: 100%;            /* Occupa tutta la larghezza disponibile */
+    position: relative;     /* Permette di posizionare elementi al suo interno */
+    height: calc(90vh - 60px); /* Altezza pari al 90% della finestra meno lo spazio per il menu */
+    overflow: auto;         /* Aggiunge barre di scorrimento se il contenuto è troppo grande */
+}
+
+/* Stili per l'immagine di sfondo */
+.background-image {
+    width: 100%;            /* Occupa tutta la larghezza disponibile */
+    height: 100%;           /* Occupa tutta l'altezza disponibile */
+    position: absolute;     /* Posizionamento assoluto rispetto al contenitore */
+    top: 0;                 /* Allineato in alto */
+    left: 0;                /* Allineato a sinistra */
+    z-index: 1;             /* Livello di sovrapposizione (più basso rispetto ai contenuti) */
+}
+
+/* Stili per l'immagine di sfondo effettiva */
+.background-image img {
+    width: 100%;            /* Occupa tutta la larghezza disponibile */
+    height: 100%;           /* Occupa tutta l'altezza disponibile */
+    object-fit: cover;      /* Fa in modo che l'immagine riempia lo spazio senza distorsioni */
+    object-position: center; /* Centra l'immagine */
+}
+
+/* Contenitore per le sezioni di contenuto */
+.content-sections {
+    position: absolute;     /* Posizionamento assoluto rispetto al contenitore principale */
+    top: 0;                 /* Allineato in alto */
+    left: 0;                /* Allineato a sinistra */
+    width: 100%;            /* Occupa tutta la larghezza */
+    height: 100%;           /* Occupa tutta l'altezza */
+    display: flex;          /* Abilita il layout flessibile */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center;    /* Centra verticalmente */
+    z-index: 2;             /* Livello di sovrapposizione (sopra lo sfondo) */
+    pointer-events: none;   /* Ignora gli eventi del mouse (passa attraverso) */
+    overflow: auto;         /* Aggiunge barre di scorrimento se necessario */
+    padding: 20px 0;        /* Aggiunge spazio sopra e sotto */
+}
+
+/* Stile per ogni singola sezione di contenuto */
+.content-section {
+    width: 80%;             /* Occupa l'80% della larghezza del contenitore */
+    max-width: 1100px;      /* Larghezza massima di 1100 pixel */
+    max-height: 80vh;       /* Altezza massima pari all'80% dell'altezza della finestra */
+    padding: 20px;          /* Spazio interno attorno al contenuto */
+    background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco semi-trasparente */
+    border-radius: 8px;     /* Bordi arrotondati */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+    opacity: 0;             /* Inizialmente invisibile */
+    transition: opacity 1.5s ease; /* Transizione fluida per l'apparizione */
+    pointer-events: none;   /* Ignora gli eventi del mouse (inizialmente) */
+    overflow: auto;         /* Aggiunge barre di scorrimento se necessario */
+    margin-top: 20px;       /* Spazio sopra la sezione */
+}
+
+/* Stile quando la sezione di contenuto è attiva */
+.content-section.active {
+    pointer-events: auto;   /* Permette l'interazione con il mouse */
+}
+
+/* Stile per i titoli nelle sezioni di contenuto */
+.content-section h2 {
+    font-size: 24px;        /* Dimensione del testo */
+    margin-bottom: 15px;    /* Spazio sotto il titolo */
+    color: #0d6f7c;         /* Colore blu-verde */
+    border-bottom: 2px solid #333; /* Linea nera sotto il titolo */
+    padding-bottom: 8px;    /* Spazio tra il testo e la linea */
+}
+
+/* Stile per i paragrafi nelle sezioni di contenuto */
+.content-section p {
+    font-size: 14px;        /* Dimensione del testo */
+    line-height: 1.5;       /* Altezza della linea (1.5 volte la dimensione del testo) */
+    margin-bottom: 12px;    /* Spazio sotto ogni paragrafo */
+    color: #444;            /* Colore grigio scuro */
+}
+
+/* Layout a griglia per le sezioni di contenuto */
+.content-grid {
+    display: flex;          /* Abilita il layout flessibile */
+    gap: 15px;              /* Spazio tra le colonne */
+}
+
+/* Colonna di testo nel layout a griglia */
+.content-text {
+    flex: 3;                /* Rapporto di grandezza relativo (occupa 3 parti su 5) */
+    position: relative;     /* Permette di posizionare elementi al suo interno */
+    max-height: 70vh;       /* Altezza massima pari al 70% dell'altezza della finestra */
+    overflow-y: auto;       /* Aggiunge barra di scorrimento verticale se necessario */
+}
+
+/* Colonna delle immagini nel layout a griglia */
+.content-images {
+    flex: 2;                /* Rapporto di grandezza relativo (occupa 2 parti su 5) */
+    display: flex;          /* Abilita il layout flessibile */
+    flex-direction: column; /* Dispone gli elementi in verticale */
+    gap: 15px;              /* Spazio tra le immagini */
+    position: relative;     /* Permette di posizionare elementi al suo interno */
+    max-height: 70vh;       /* Altezza massima pari al 70% dell'altezza della finestra */
+}
+
+/* Contenitore per le singole immagini */
+.image-box {
+    width: 100%;            /* Occupa tutta la larghezza disponibile */
+    height: calc(50% - 7.5px); /* Occupa metà dell'altezza meno metà dello spazio tra le immagini */
+    background-color: rgba(240, 240, 240, 0.9); /* Sfondo grigio chiaro semi-trasparente */
+    border-radius: 8px;     /* Bordi arrotondati */
+    overflow: hidden;       /* Nasconde parti dell'immagine che eccedono */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    display: none;          /* Inizialmente nascosto */
+}
+
+/* Stile quando il contenitore dell'immagine è attivo */
+.image-box.active {
+    display: block;         /* Rende visibile il contenitore */
+}
+
+/* Stile per le immagini nelle sezioni */
+.section-image {
+    width: 100%;            /* Occupa tutta la larghezza del contenitore */
+    height: 100%;           /* Occupa tutta l'altezza del contenitore */
+    object-fit: cover;      /* Fa in modo che l'immagine riempia lo spazio senza distorsioni */
+}
+
+/* Stile per i link e i pulsanti nelle sezioni di contenuto */
+.content-section a, .content-section button {
+    cursor: pointer;        /* Cambia il cursore in una mano quando sopra */
+    display: inline-block;  /* Rende l'elemento in linea ma con caratteristiche di blocco */
+    color: #0d6f7c;         /* Colore blu-verde */
+    text-decoration: none;  /* Rimuove la sottolineatura dai link */
+    font-weight: bold;      /* Testo in grassetto */
+    transition: all 0.3s ease; /* Transizione fluida per i cambiamenti di stile */
+}
+
+/* Cambia lo stile dei link e pulsanti quando il mouse ci passa sopra */
+.content-section a:hover, .content-section button:hover {
+    color: #0a5761;         /* Colore blu-verde più scuro */
+    text-decoration: underline; /* Aggiunge sottolineatura */
+}
+
+/* Stile specifico per i pulsanti nelle sezioni di contenuto */
+.content-section button {
+    background-color: #0d6f7c; /* Sfondo blu-verde */
+    color: white;           /* Testo bianco */
+    border: none;           /* Nessun bordo */
+    padding: 6px 12px;      /* Spazio interno: 6px sopra/sotto, 12px a destra/sinistra */
+    border-radius: 4px;     /* Bordi arrotondati */
+    cursor: pointer;        /* Cambia il cursore in una mano quando sopra */
+    margin-right: 10px;     /* Spazio a destra del pulsante */
+    font-size: 14px;        /* Dimensione del testo */
+}
+
+/* Cambia lo stile dei pulsanti quando il mouse ci passa sopra */
+.content-section button:hover {
+    background-color: #0a5761; /* Sfondo blu-verde più scuro */
+    text-decoration: none;   /* Nessuna sottolineatura */
+}
+
+/* Stile per le pagine di contenuto */
+.content-page {
+    display: none;          /* Inizialmente nascosto */
+    opacity: 0;             /* Completamente trasparente */
+    transition: opacity 0.5s ease; /* Transizione fluida per l'apparizione */
+}
+
+/* Stile quando la pagina di contenuto è attiva */
+.content-page.active {
+    display: block;         /* Rende visibile la pagina */
+    opacity: 1;             /* Completamente opaco (visibile) */
+}
+
+/* Stile per il testo evidenziato */
+mark {
+    background-color: rgba(20, 139, 218, 0.699); /* Sfondo blu semi-trasparente */
+    color: rgb(255, 255, 255); /* Testo bianco */
+}
+
+/* Fa occupare tutta l'altezza disponibile alle immagini singole */
+.image-box.full-height {
+    height: 100%;           /* Occupa tutta l'altezza disponibile */
+}
+
+/* Stile per i video nelle sezioni */
+.section-video {
+    width: 90%;             /* Occupa il 90% della larghezza disponibile */
+    height: 90%;            /* Occupa il 90% dell'altezza disponibile */
+    object-fit: cover;      /* Fa in modo che il video riempia lo spazio senza distorsioni */
+    border-radius: 8px;     /* Bordi arrotondati */
+}
+
+/* Elemento separatore per creare spazio orizzontale */
+.separatore {
+    display: inline-block;  /* Rende l'elemento in linea ma con caratteristiche di blocco */
+    width: 1510px;          /* Larghezza fissa */
+    text-shadow: none !important; /* Rimuove l'ombra del testo */
+    background: transparent; /* Sfondo trasparente */
+}
+
+/* Contenitore per i crediti in fondo alla pagina */
+.credits-container {
+    position: absolute;     /* Posizionamento assoluto */
+    bottom: 20px;           /* 20px dal fondo */
+    left: 100;              /* 100px da sinistra */
+    right: 0;               /* Allineato a destra */
+    text-align: right;      /* Testo allineato a destra */
+    background-color: rgba(36, 122, 202, 0.7); /* Sfondo blu semi-trasparente */
+    color: white;           /* Testo bianco */
+    padding: 8px 15px;      /* Spazio interno: 8px sopra/sotto, 15px a destra/sinistra */
+    z-index: 1000;          /* Livello di sovrapposizione molto alto */
+    border-radius: 5px;     /* Bordi arrotondati */
+    margin: 0 auto;         /* Centrato orizzontalmente */
+    max-width: 80%;         /* Larghezza massima dell'80% */
+    font-size: 14px;        /* Dimensione del testo */
+}
+
+/* Stile per i link nei crediti */
+.credits-container a {
+    color: #ffcc00;         /* Colore giallo */
+    text-decoration: underline; /* Sottolineato */
+    font-weight: bold;      /* Testo in grassetto */
+}
+
+/* Media queries per adattare il design a schermi più piccoli */
+
+/* Per schermi con altezza inferiore a 800px */
+@media screen and (max-height: 800px) {
+    .content-section {
+        max-height: 75vh;   /* Riduce l'altezza massima al 75% della finestra */
+        padding: 15px;      /* Riduce lo spazio interno */
+    }
+    
+    .content-text, .content-images {
+        max-height: 65vh;   /* Riduce l'altezza massima al 65% della finestra */
+    }
+    
+    .content-section h2 {
+        font-size: 22px;    /* Riduce la dimensione del titolo */
+        margin-bottom: 12px; /* Riduce lo spazio sotto il titolo */
+    }
+    
+    .content-section p {
+        font-size: 13px;    /* Riduce la dimensione del testo */
+        line-height: 1.4;   /* Riduce l'altezza della linea */
+        margin-bottom: 10px; /* Riduce lo spazio sotto i paragrafi */
+    }
+    
+    .content-section button {
+        padding: 5px 10px;  /* Riduce lo spazio interno dei pulsanti */
+        font-size: 13px;    /* Riduce la dimensione del testo dei pulsanti */
+    }
+}
+
+/* Per schermi ancora più piccoli (altezza inferiore a 600px) */
+@media screen and (max-height: 600px) {
+    .menu-container {
+        padding: 10px 0;    /* Riduce lo spazio sopra e sotto il menu */
+    }
+    
+    .menu-btn {
+        padding: 8px 20px;  /* Riduce lo spazio interno dei pulsanti */
+        font-size: 14px;    /* Riduce la dimensione del testo dei pulsanti */
+    }
+    
+    .content-section {
+        max-height: 70vh;   /* Riduce ulteriormente l'altezza massima */
+        padding: 12px;      /* Riduce ulteriormente lo spazio interno */
+    }
+    
+    .content-text, .content-images {
+        max-height: 60vh;   /* Riduce ulteriormente l'altezza massima */
+    }
+    
+    .content-section h2 {
+        font-size: 20px;    /* Riduce ulteriormente la dimensione del titolo */
+        margin-bottom: 10px; /* Riduce ulteriormente lo spazio sotto il titolo */
+    }
+    
+    .content-section p {
+        font-size: 12px;    /* Riduce ulteriormente la dimensione del testo */
+        line-height: 1.3;   /* Riduce ulteriormente l'altezza della linea */
+        margin-bottom: 8px; /* Riduce ulteriormente lo spazio sotto i paragrafi */
+    }
+}
